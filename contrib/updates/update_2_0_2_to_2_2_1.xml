@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.2.6 by tumba25 (phpBB version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Admin Notepad (formerly ACP Notepad) Upgrade]]></title>
+		<description lang="en"><![CDATA[How to upgrade from version 2.0.2 to version 2.2.0 of the ACP Notepad]]></description>
+		<author-notes lang="en"><![CDATA[You can contact (me) the author at the email given in this file.]]></author-notes>
+		<author-group>
+			<author>
+				<realname><![CDATA[Waleed Zuberi]]></realname>
+				<username><![CDATA[Waleed Zuberi]]></username>
+				<homepage><![CDATA[http://waleed.doubleudesigns.com/]]></homepage>
+				<email><![CDATA[waleed@doubleudesigns.com]]></email>
+				<contributions-group>
+					<contributions status="current" from="2008-03-04" position="QA Team"/>
+				</contributions-group>
+			</author>
+			<author>
+				<username phpbbcom="no"><![CDATA[WileCoyote]]></username>
+				<homepage><![CDATA[http://wu-systems.at]]></homepage>
+				<email><![CDATA[office@wu-systems.at]]></email>
+				<contributions-group>
+					<contributions status="current" from="2011-10-09" position="Translator/Maintainer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>2.2.1</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>120</time>
+			<target-version>3.0.9</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2011-10-09</date>
+				<rev-version>2.2.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[[ADD] German language file and de.xml added]]></change>
+					<change><![CDATA[[ADD] Added UMIL 1.0.4 to the package and created UMIF]]></change>
+					<change><![CDATA[[UPD] Updated xml files to MODx 1.2.5]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-12-24</date>
+				<rev-version>2.2.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[bug fixes / improved code and database structure]]></change>
+					<change><![CDATA[BBCode styles fixed]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-11-09</date>
+				<rev-version>2.1.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[few bug fixes]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-08-02</date>
+				<rev-version>2.0.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[fixed UTF8 issue]]></change>
+					<change><![CDATA[separated language file]]></change>
+					<change><![CDATA[improved code to validate for phpBB MOD database]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-06-28</date>
+				<rev-version>1.7.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[added ability to make notes private, i.e. visible only to author]]></change>
+					<change><![CDATA[added several security measures to prevent admins from deleting anothers private notes]]></change>
+					<change><![CDATA[fixed a few bugs]]></change>
+					<change><![CDATA[improved code]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-05-19</date>
+				<rev-version>1.6.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[enabled support for custom BBCodes]]></change>
+					<change><![CDATA[cleaned up template file]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-05-01</date>
+				<rev-version>1.6.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[fixed empty DB, dropdown bug]]></change>
+					<change><![CDATA[fixed default mode issues]]></change>
+					<change><![CDATA[fixed 'delete all' bug]]></change>
+					<change><![CDATA[cleaned up template file]]></change>
+					<change><![CDATA[improved PHP and SQL code]]></change>
+					<change><![CDATA[added direct linking to notes]]></change>
+					<change><![CDATA[added edited message notification]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2007-01-31</date>
+				<rev-version>1.5.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Improved code]]></change>
+					<change><![CDATA[Fixed few minor bugs]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2006-12-17</date>
+				<rev-version>1.4.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Improved code]]></change>
+					<change><![CDATA[Added more functionality]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2006-09-10</date>
+				<rev-version>1.3.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Improved code]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2006-09-10</date>
+				<rev-version>1.2.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added "posted by" line]]></change>
+					<change><![CDATA[Put in BBCode buttons]]></change>
+					<change><![CDATA[Added Log support]]></change>
+					<change><![CDATA[Improved code]]></change>
+					<change><![CDATA[Minor bugfixes]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2006-09-10</date>
+				<rev-version>1.1.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added BBCode support]]></change>
+					<change><![CDATA[Ability to edit previously saved messages]]></change>
+					<change><![CDATA[Poster name also saved and displayed]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2006-09-08</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial MOD release]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="parent" href="../../install_mod.xml" lang="en">Main Install File</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/adm/styles/acp_admin_notepad.html" to="adm/styles/acp_admin_notepad.html"/>
+			<file from="root/includes/acp/acp_admin_notepad.php" to="includes/acp/acp_admin_notepad.php"/>
+			<file from="root/includes/acp/info/acp_admin_notepad.php" to="includes/acp/info/acp_admin_notepad.php"/>
+			<file from="root/language/en/mods/info_acp_admin_notepad.php" to="language/en/mods/info_acp_admin_notepad.php"/>
+		</copy>
+		<sql><![CDATA[ALTER TABLE phpbb_admin_notepad CHANGE id note_id MEDIUMINT( 8 ) UNSIGNED NOT NULL AUTO_INCREMENT ,
+CHANGE subject note_subject VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+CHANGE message note_message MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+CHANGE poster note_poster_name VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+CHANGE poster_id note_poster_id MEDIUMINT( 8 ) UNSIGNED NOT NULL ,
+CHANGE post_time note_post_time INT( 11 ) UNSIGNED NOT NULL ,
+CHANGE bbcode_uid note_bbcode_uid VARCHAR( 8 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+CHANGE bbcode_bitfield note_bbcode_bitfield VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL ,
+CHANGE edited edited TINYINT( 1 ) NOT NULL DEFAULT '0',
+CHANGE edited_by note_edit_by VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '0',
+CHANGE edited_by_id note_edit_by_id TINYINT( 8 ) UNSIGNED NOT NULL DEFAULT '0',
+CHANGE edited_time note_edit_time INT( 11 ) UNSIGNED NOT NULL DEFAULT '0',
+CHANGE is_private note_is_private TINYINT( 1 ) NOT NULL DEFAULT '0',
+DROP edited]]></sql>
+		<diy-instructions lang="en"><![CDATA[Replace all old files with the new updated ones, run the SQL query to update the database, do the file
+edits and enjoy!
+
+If, however, there are problems, re-install the ACP module and it should work.
+
+]]></diy-instructions>
+	</action-group>
+</mod>

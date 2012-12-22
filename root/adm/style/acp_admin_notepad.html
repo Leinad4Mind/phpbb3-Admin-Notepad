@@ -1,0 +1,188 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+	<script type="text/javascript">
+	<!--
+	
+	var form_name = 'post';
+	var text_name = 'message';
+    
+	// Define the bbCode tags
+	var bbcode = new Array();
+	var bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[flash=]', '[/flash]','[size=]','[/size]'<!-- BEGIN custom_tags -->, {custom_tags.BBCODE_NAME}<!-- END custom_tags -->);
+	var imageTag = false;
+
+	// Helpline messages
+	var help_line = {
+		b: '{LA_BBCODE_B_HELP}',
+		i: '{LA_BBCODE_I_HELP}',
+		u: '{LA_BBCODE_U_HELP}',
+		q: '{LA_BBCODE_Q_HELP}',
+		c: '{LA_BBCODE_C_HELP}',
+		l: '{LA_BBCODE_L_HELP}',
+		o: '{LA_BBCODE_O_HELP}',
+		p: '{LA_BBCODE_P_HELP}',
+		w: '{LA_BBCODE_W_HELP}',
+		s: '{LA_BBCODE_S_HELP}',
+		f: '{LA_BBCODE_F_HELP}',
+		e: '{LA_BBCODE_E_HELP}',
+		d: '{LA_BBCODE_D_HELP}',
+		t: '{LA_BBCODE_T_HELP}',
+		tip: '{L_STYLES_TIP}'
+		<!-- BEGIN custom_tags -->
+			,cb_{custom_tags.BBCODE_ID}: '{custom_tags.BBCODE_HELPLINE}'
+		<!-- END custom_tags -->
+	}
+	
+	function selectCode(a)
+	{
+		// Get ID of code block
+		var e = a.parentNode.parentNode.getElementsByTagName('CODE')[0];
+	
+		// Not IE
+		if (window.getSelection)
+		{
+			var s = window.getSelection();
+			// Safari
+			if (s.setBaseAndExtent)
+			{
+				s.setBaseAndExtent(e, 0, e, e.innerText.length - 1);
+			}
+			// Firefox and Opera
+			else
+			{
+				var r = document.createRange();
+				r.selectNodeContents(e);
+				s.removeAllRanges();
+				s.addRange(r);
+			}
+		}
+		// Some older browsers
+		else if (document.getSelection)
+		{
+			var s = document.getSelection();
+			var r = document.createRange();
+			r.selectNodeContents(e);
+			s.removeAllRanges();
+			s.addRange(r);
+		}
+		// IE
+		else if (document.selection)
+		{
+			var r = document.body.createTextRange();
+			r.moveToElementText(e);
+			r.select();
+		}
+	}
+
+	//-->
+	</script>
+	<script type="text/javascript" src="{T_TEMPLATE_PATH}/editor.js"></script>
+
+<h1>{L_ADMIN_NOTEPAD}</h1>
+<p>{L_ADMIN_NOTEPAD_EXPLAIN}</p>
+
+<hr style="color: #000;" />
+
+<!-- IF S_ENABLE_DROPDOWN -->
+	<form action="{U_ADMIN_NOTEPAD}" id="read_msg" method="post">
+	    <p><label for="read_msg">{L_ADMIN_NOTEPAD_PREVIOUS_MSG}</label>
+	    <br /> {PREVIOUS_MSG_BOX_OPTIONS}
+		<input class="button1" type="submit" id="read" name="read" value="{L_ADMIN_NOTEPAD_READ}" />
+	    <input class="button2" type="submit" id="delete" name="delete" value="{L_ADMIN_NOTEPAD_DELETE}" />
+	    <input class="button2" type="submit" id="delete-all" name="delete-all" value="{L_ADMIN_NOTEPAD_DELETE_ALL}" /></p>
+	</form>
+<!-- ELSE -->
+	{L_NONE_FOUND}
+<!-- ENDIF -->
+
+<br />
+
+<!-- IF S_NOTEPAD_READ -->
+<table class="tablebg" width="100%" cellspacing="1">
+    <tr>
+        <th>{NOTEPAD_SUBJECT}</th>
+    </tr>
+    <tr class="row2">
+        <td>{L_POSTED_BY} {POSTER} {L_ON} {POST_TIME}</td>
+    </tr>
+    <tr class="row1">
+        <td>{NOTEPAD_TEXT}</td>
+    </tr>
+    <!-- IF S_EDITED --><tr><td><!-- IF S_IS_AUTHOR -->{L_EDITED_BY_AUTHOR}<!-- ELSE -->{L_EDITED_BY}<!-- ENDIF --> {EDITED_BY} {L_ON} {EDITED_TIME}</td></tr><!-- ENDIF -->
+    <!-- IF S_IS_PRIV --><tr><td>{L_NOTIFY_PRIV}</td></tr><!-- ENDIF -->
+    <tr class="row2">
+        <td>
+            <form action="{ADMIN_NOTEPAD_FORM_PROCESSOR}" method="post">
+                <div>
+                    <input type="hidden" name="read_msg" value="{MSG_ID}" />
+                    <!-- IF S_IS_AUTHOR --><input class="button2" type="submit" id="edit" name="edit" value="{L_ADMIN_NOTEPAD_EDIT}" /><!-- ENDIF -->
+                    <input class="button2" type="submit" id="submit" name="delete" value="{L_ADMIN_NOTEPAD_DELETE}" />
+                </div>
+            </form>
+        </td>
+    </tr>
+</table> <br />
+<!-- ENDIF -->
+
+<hr style="color: #000;" />
+
+<form action="{ADMIN_NOTEPAD_FORM_PROCESSOR}" method="post" id="post">
+<table width="100%" cellspacing="0" cellpadding="2" style="background-color: #DEE3E7; border: 1px; border-style: solid;">
+	<tr valign="middle" align="left">
+		<td colspan="2">
+			<input type="button" class="button2" accesskey="b" name="addbbcode0" value=" B " style="font-weight:bold; width: 30px;" onclick="bbstyle(0)" onmouseover="helpline('b')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="i" name="addbbcode2" value=" i " style="font-style:italic; width: 30px;" onclick="bbstyle(2)" onmouseover="helpline('i')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="u" name="addbbcode4" value=" u " style="text-decoration: underline; width: 30px;" onclick="bbstyle(4)" onmouseover="helpline('u')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="q" name="addbbcode6" value="Quote" style="width: 50px" onclick="bbstyle(6)" onmouseover="helpline('q')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="c" name="addbbcode8" value="Code" style="width: 40px" onclick="bbstyle(8)" onmouseover="helpline('c')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="l" name="addbbcode10" value="List" style="width: 40px" onclick="bbstyle(10)" onmouseover="helpline('l')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="o" name="addbbcode12" value="List=" style="width: 40px" onclick="bbstyle(12)" onmouseover="helpline('o')" onmouseout="helpline('tip')" />
+			<input type="button" class="button2" accesskey="t" name="addlitsitem" value="[*]" style="width: 40px" onclick="bbstyle(-1)" onmouseover="helpline('e')" onmouseout="helpline('tip')" />
+			<!-- IF S_BBCODE_IMG -->
+				<input type="button" class="button2" accesskey="p" name="addbbcode14" value="Img" style="width: 40px" onclick="bbstyle(14)" onmouseover="helpline('p')" onmouseout="helpline('tip')" />
+			<!-- ENDIF -->
+			<!-- IF S_LINKS_ALLOWED -->
+				<input type="button" class="button2" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onclick="bbstyle(16)" onmouseover="helpline('w')" onmouseout="helpline('tip')" />
+			<!-- ENDIF -->
+			<!-- IF S_BBCODE_FLASH -->
+				<input type="button" class="button2" accesskey="d" name="addbbcode18" value="Flash" onclick="bbstyle(18)" onmouseover="helpline('d')" onmouseout="helpline('tip')" />
+			<!-- ENDIF -->
+
+			{L_FONT_SIZE}: <select name="addbbcode20" onchange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.form.addbbcode20.selectedIndex = 2;" onmouseover="helpline('f')" onmouseout="helpline('tip')">
+				<option value="7">{L_FONT_TINY}</option>
+				<option value="9">{L_FONT_SMALL}</option>
+				<option value="12" selected="selected">{L_FONT_NORMAL}</option>
+				<option value="18">{L_FONT_LARGE}</option>
+				<option value="24">{L_FONT_HUGE}</option>
+			</select>
+		<!-- IF .custom_tags -->
+			<br /><br />
+			<!-- BEGIN custom_tags -->
+				<input type="button" class="button2" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="bbstyle({custom_tags.BBCODE_ID})"<!-- IF custom_tags.BBCODE_HELPLINE !== '' --> onmouseover="helpline('cb_{custom_tags.BBCODE_ID}')"<!-- ENDIF --> />
+			<!-- END custom_tags -->
+		<!-- ENDIF -->
+			
+		</td>
+	</tr>
+	<tr>
+		<td><input type="text" name="helpbox" style="width:100%; background: #DEE3E7; border-style: none;" maxlength="100" class="helpline" value="{L_STYLES_TIP}" /></td>
+	</tr>	
+</table>
+
+<p><br />{L_ADMIN_NOTEPAD_SUBJECT}: <br /></p>
+<p><input type="text" name="subject" size="27" value="{SUBJECT}" style="width:50%" /></p>
+
+<p>{L_ADMIN_NOTEPAD_MESSAGE}: <br /></p>
+
+<p><textarea id="admin_notepad" name="message" rows="15" cols="76" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" style="width: 98%;">{MESSAGE}</textarea></p>
+
+<p>
+<input type="hidden" name="id" value="NULL" />
+<!-- IF not S_EDIT_MSG or S_IS_AUTHOR --><input type="checkbox" name="make_private" id="make_private" value="1" <!-- IF S_IS_PRIV_CHK -->checked="checked"<!-- ENDIF -->/> <label for="make_private">{L_MAKE_PRIV}</label><br /><br /><!-- ENDIF -->
+<!-- IF S_EDIT_MSG --><input type="hidden" name="msg_id" value="{MSG_ID}" /><input class="button1" type="submit" id="submit" name="save-edited" value="{L_ADMIN_NOTEPAD_SAVE_EDITED}" />&nbsp;<!-- ENDIF --><input class="button1" type="submit" id="add" name="add" value="{L_ADMIN_NOTEPAD_SAVE}" />
+</p>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
